@@ -1,0 +1,87 @@
+<div id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="nav-container">
+    <ul class="nav" role="menu">
+        <li class="nav-home{{#is 'index'}} nav-current{{/is}}" role="menuitem"><a href="{{@site.url}}" class="nav-item-title">Всі статті</a></li>
+        {{#get 'tags' filter='slug:[
+                sobyitiya-na-freelancehunt,
+                istorii,
+                instrumentyi,
+                intierviu,
+                konkursy,
+                tiekhnologhii,
+                kieisy
+            ]' limit='all' as |tags|}}
+            <li class="nav-dropdown-container" role="menuitem"><span class="nav-item-title">Люди та технології <span id="dropdown-icon"></span></span>
+                <ul class="nav-dropdown">
+                    {{#foreach tags}}
+                        <li class="nav-{{slug}} {{link_class for=url}}" role="menuitem"><a
+                            href="{{url absolute="true"}}" class="nav-item-title">{{name}}</a></li>
+                    {{/foreach}}
+                </ul>
+            </li>
+        {{/get}}
+        {{#get 'tags' filter='slug:[
+                design,
+                markietingh,
+                copywriting,
+                proghrammirovaniie,
+                razrabotka,
+                uslughi,
+                zakonodatielstvo
+            ]' limit='all' as |tags|}}
+            <li class="nav-dropdown-container" role="menuitem"><span class="nav-item-title">Фриланс <span id="dropdown-icon"></span></span>
+                <ul class="nav-dropdown">
+                    {{#foreach tags}}
+                        <li class="nav-{{slug}} {{link_class for=url}}" role="menuitem"><a
+                            href="{{url absolute="true"}}" class="nav-item-title">{{name}}</a></li>
+                    {{/foreach}}
+                </ul>
+            </li>
+        {{/get}}
+        {{#get 'tags' filter='slug:[
+                zakazchikam,
+                rabotodateljam,
+                biznesu,
+                rynok-truda,
+                finansy,
+                soiskateljam,
+                rielokieit
+            ]' limit='all' as |tags|}}
+            <li class="nav-dropdown-container" role="menuitem"><span class="nav-item-title">Бізнес і кар’єра <span id="dropdown-icon"></span></span>
+                <ul class="nav-dropdown">
+                    {{#foreach tags}}
+                        <li class="nav-{{slug}} {{link_class for=url}}" role="menuitem"><a
+                            href="{{url absolute="true"}}" class="nav-item-title">{{name}}</a></li>
+                    {{/foreach}}
+                </ul>
+            </li>
+        {{/get}}
+        {{#get 'tags' filter='slug:[
+                chitaiem-na-vykhodnykh,
+                putieshiestviia,
+                ighromaniia,
+                mnieniie
+            ]' limit='all' as |tags|}}
+            <li class="nav-dropdown-container" role="menuitem"><span class="nav-item-title">Відпочинок <span id="dropdown-icon"></span></span>
+                <ul class="nav-dropdown">
+                    {{#foreach tags}}
+                        <li class="nav-{{slug}} {{link_class for=url}}" role="menuitem"><a
+                            href="{{url absolute="true"}}" class="nav-item-title">{{name}}</a></li>
+                    {{/foreach}}
+                </ul>
+            </li>
+        {{/get}}
+        {{!--{{#foreach navigation}}
+            <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="menuitem"><a href="{{url absolute="true"}}" class="nav-item-title">{{label}}</a></li>
+        {{/foreach}}--}}
+        <li role="menuitem"><a href="#" class="nav-item-title search-open-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"><path d="M508.875,493.792L353.089,338.005c32.358-35.927,52.245-83.296,52.245-135.339C405.333,90.917,314.417,0,202.667,0 S0,90.917,0,202.667s90.917,202.667,202.667,202.667c52.043,0,99.411-19.887,135.339-52.245l155.786,155.786 c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125C513.042,504.708,513.042,497.958,508.875,493.792z M202.667,384c-99.979,0-181.333-81.344-181.333-181.333S102.688,21.333,202.667,21.333S384,102.677,384,202.667 S302.646,384,202.667,384z"/></svg>
+            <span class="visible-sm"> Пошук</span>
+        </a></li>
+    </ul>
+</div>
